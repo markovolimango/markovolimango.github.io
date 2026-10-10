@@ -5,7 +5,6 @@
     --accent: #7FB069;
     --text: #e6e6e6;
     --text-dim: #9ca3af;
-    --glow: rgba(0, 229, 255, 0.3);
 }
 
 * {
@@ -19,7 +18,7 @@ body {
     background: var(--bg);
     color: var(--text);
     line-height: 1.7;
-    font-size: 14px;
+    font-size: 15px;
     padding: 20px;
 }
 
@@ -29,7 +28,7 @@ body {
 }
 
 header {
-    margin-bottom: 60px;
+    margin: 32px 0 60px;
 }
 
 h1 {
@@ -43,7 +42,8 @@ h1 {
 .subtitle {
     color: var(--text-dim);
     margin-bottom: 24px;
-    max-width: 600px;
+    max-width: 640px;
+    font-size: 15px;
 }
 
 .links {
@@ -96,14 +96,51 @@ h2 {
     border: 1px solid var(--border);
     border-radius: 4px;
     padding: 20px;
-    transition: all 0.2s;
+    transition: border-color 0.2s;
+}
+
+.card.featured,
+.card.row {
+    margin-bottom: 24px;
+}
+
+.card.featured {
+    padding: 24px;
+}
+
+.card.featured:hover {
+    border-color: var(--accent);
+}
+
+.card.row:last-child {
+    margin-bottom: 0;
+}
+
+.card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
 }
 
 h3 {
     font-size: 15px;
     font-weight: 600;
-    margin-bottom: 8px;
     color: var(--text);
+}
+
+.card.featured h3 {
+    font-size: 17px;
+}
+
+.date {
+    display: inline-block;
+    color: var(--text-dim);
+    font-size: 12px;
+    white-space: nowrap;
+    margin-bottom: 4px;
 }
 
 .tags {
@@ -127,7 +164,32 @@ h3 {
 p {
     color: var(--text-dim);
     margin-bottom: 8px;
-    font-size: 13px;
+    font-size: 14px;
+}
+
+ul {
+    list-style: none;
+    margin: 4px 0 8px;
+}
+
+li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 6px;
+    color: var(--text-dim);
+    font-size: 14px;
+}
+
+li::before {
+    content: '›';
+    position: absolute;
+    left: 2px;
+    color: var(--accent);
+}
+
+code {
+    font-family: inherit;
+    color: var(--text);
 }
 
 .card .btn {
@@ -137,16 +199,20 @@ p {
     padding: 6px 12px;
 }
 
-.single-col {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 20px;
-    margin-bottom: 16px;
+.skills {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 8px 24px;
+    font-size: 14px;
 }
 
-.single-col:last-child {
-    margin-bottom: 0;
+.skills dt {
+    color: var(--text);
+    font-weight: 500;
+}
+
+.skills dd {
+    color: var(--text-dim);
 }
 
 a {
@@ -162,24 +228,29 @@ a:hover {
 
 @media (max-width: 600px) {
     body {
-        font-size: 13px;
-        padding: 12px;
+        font-size: 14px;
+        padding: 16px;
     }
 
     h1 {
-        font-size: 24px;
+        font-size: 28px;
     }
 
-    .grid, .skills-grid {
+    .grid {
         grid-template-columns: 1fr;
     }
 
-    .terminal-header {
-        margin-bottom: 24px;
+    header {
+        margin: 16px 0 40px;
     }
 
-    header {
-        margin-bottom: 40px;
+    .skills {
+        grid-template-columns: 1fr;
+        gap: 2px;
+    }
+
+    .skills dd {
+        margin-bottom: 8px;
     }
 }
 

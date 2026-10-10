@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Marko Popadić</title>
+    <meta name="description" content="Software Engineering student at the University of Belgrade, focused on low-level systems: operating systems, embedded software and computer architecture.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Marko Popadić">
+    <meta property="og:description" content="Software Engineering student at the University of Belgrade, focused on low-level systems: operating systems, embedded software and computer architecture.">
+    <meta property="og:url" content="https://markovolimango.github.io/">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2302020B'/%3E%3Ctext x='16' y='23' font-family='monospace' font-size='20' font-weight='bold' text-anchor='middle' fill='%237FB069'%3EM%3C/text%3E%3C/svg%3E">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="styles.css" rel="stylesheet"/>
 </head>
@@ -11,173 +17,200 @@
 <div class="container">
     <header>
         <h1>Marko Popadić</h1>
-        <p class="subtitle">Second-year software engineering student with a strong foundation in math and programming,
-            and a particular interest in low-level programming and compilers.</p>
+        <p class="subtitle">Third-year Software Engineering student at the University of Belgrade, focused on
+            low-level systems: operating systems, embedded software and computer architecture.</p>
         <div class="links">
-            <a class="btn" href="mailto:m.popadic05@icloud.com">Email</a>
+            <a class="btn" href="mailto:maremare005@gmail.com">Email</a>
             <a class="btn" href="https://github.com/markovolimango" target="_blank">GitHub</a>
-            <a class="btn" href="https://www.linkedin.com/in/marko-basket-popadic" target="_blank">LinkedIn</a>
+            <a class="btn" href="https://www.linkedin.com/in/markodpopadic" target="_blank">LinkedIn</a>
         </div>
     </header>
 
     <section>
-        <h2>Education</h2>
+        <h2>Projects</h2>
+
+        <div class="card featured">
+            <div class="card-head">
+                <h3>RISC-V Kernel</h3>
+                <span class="date">Jun. 2026</span>
+            </div>
+            <div class="tags">
+                <span class="tag">C</span>
+                <span class="tag">C++</span>
+                <span class="tag">RISC-V assembly</span>
+            </div>
+            <p>A small operating system kernel for RISC-V. Started as the Operating Systems course project and
+                extended well beyond it.</p>
+            <ul>
+                <li>Preemptive multithreading with per-thread kernel stacks and a timer-driven context switch
+                    written in RISC-V assembly.</li>
+                <li>O(1) priority scheduler over per-priority active and expired queues, with semaphores for
+                    blocking and wakeup.</li>
+                <li>User/supervisor mode privilege separation with an <code>ecall</code> system call interface.</li>
+                <li>Boundary-tag heap allocator where one metadata block serves as both a chunk's footer and the
+                    next chunk's header, giving O(1) coalescing on free.</li>
+                <li>Debugged with GDB against QEMU, running in Docker.</li>
+            </ul>
+            <a class="btn" href="https://github.com/markovolimango/riscv-kernel" target="_blank">GitHub</a>
+        </div>
+
+        <div class="card featured">
+            <div class="card-head">
+                <h3>Logo Language Server</h3>
+                <span class="date">Apr. 2026</span>
+            </div>
+            <div class="tags">
+                <span class="tag">Java</span>
+                <span class="tag">LSP</span>
+            </div>
+            <p>A language server for the Logo programming language, with a VS Code client.</p>
+            <ul>
+                <li>One-way pipeline architecture (lexer, recursive descent parser, analysis), with lsp4j types
+                    confined to the protocol boundary.</li>
+                <li>A user-defined arity map, built during parsing, resolves calls in a language with no argument
+                    delimiters.</li>
+                <li>Symbol resolution over a scope tree that stores definitions in order and searches in reverse,
+                    so redefinitions resolve to the latest binding.</li>
+                <li>Debounced reparsing, syntax highlighting, go-to declaration/definition/references, rename,
+                    document structure, diagnostics, completion, hover and folding ranges.</li>
+            </ul>
+            <a class="btn" href="https://github.com/markovolimango/logo-lsp" target="_blank">GitHub</a>
+        </div>
+
+        <div class="card featured">
+            <div class="card-head">
+                <h3>Mini Shell</h3>
+                <span class="date">Feb. 2026</span>
+            </div>
+            <div class="tags">
+                <span class="tag">C++</span>
+            </div>
+            <p>A Unix-style shell built as a university project.</p>
+            <ul>
+                <li>Pipes and I/O redirection, with parsing, command construction and execution separated into
+                    distinct layers.</li>
+                <li>I/O streams are parameters at the entry point, so unit tests drive the whole shell end to end
+                    with substituted streams.</li>
+                <li>Failures modeled through a dedicated error hierarchy rather than return codes.</li>
+            </ul>
+            <a class="btn" href="https://github.com/markovolimango/mini-cli" target="_blank">GitHub</a>
+        </div>
+
         <div class="grid">
             <div class="card">
-                <h3>University of Belgrade, School of Electrical Engineering</h3>
-                <p>2024 - Present</p>
-                <p>Bachelor of Software Engineering</p>
-                <p>Current average grade: 9.78</p>
-                <p>Enrolled with a perfect score on the entrance exam</p>
+                <div class="card-head">
+                    <h3>Checkers Bot</h3>
+                    <span class="date">Apr. 2025</span>
+                </div>
+                <div class="tags">
+                    <span class="tag">C#</span>
+                    <span class="tag">Avalonia UI</span>
+                </div>
+                <p>Desktop checkers game against a bot that searches with minimax, alpha-beta pruning and
+                    iterative deepening under a time limit you choose.</p>
+                <p>Bitboard board representation, MVVM architecture, unit tests in GitHub Actions, and optional
+                    hints from a local LLM through Ollama.</p>
+                <a class="btn" href="https://github.com/markovolimango/Checkers-Bot" target="_blank">GitHub</a>
             </div>
             <div class="card">
-                <h3>Mathematical Grammar School</h3>
-                <p>2020 - 2024</p>
-                <p>Graduated with the Vuk Karadžić Diploma and a 5.00 grade average</p>
+                <div class="card-head">
+                    <h3>Power-Line Fried Chicken</h3>
+                    <span class="date">Feb. 2025</span>
+                </div>
+                <div class="tags">
+                    <span class="tag">C#</span>
+                    <span class="tag">Unity</span>
+                </div>
+                <p>2D action game built by a team of five in 7 days for Bigmode Game Jam 2025. Placed #13 in fun,
+                    #16 in originality and #25 in theme out of 800+ entries.</p>
+                <p>I built the core game logic, with player and enemy movement synchronized to the beat of the
+                    music.</p>
+                <a class="btn" href="https://itch.io/jam/bigmode-game-jam-2025/rate/3298066" target="_blank">itch.io</a>
+                <a class="btn" href="https://github.com/markovolimango/Power-Line-Trouble" target="_blank">GitHub</a>
+            </div>
+            <div class="card">
+                <div class="card-head">
+                    <h3>The Secret Laugh</h3>
+                    <span class="date">Jan. 2024</span>
+                </div>
+                <div class="tags">
+                    <span class="tag">C#</span>
+                    <span class="tag">Unity</span>
+                </div>
+                <p>Action/puzzle game built in 48 hours for Global Game Jam 2024. Find a hidden target by
+                    tickling them.</p>
+                <a class="btn" href="https://globalgamejam.org/games/2024/secret-laugh-4" target="_blank">GGJ Site</a>
+                <a class="btn" href="https://github.com/Veliki5382/TheSecretLaugh" target="_blank">GitHub</a>
             </div>
         </div>
     </section>
 
     <section>
-        <h2>Projects</h2>
+        <h2>Education</h2>
         <div class="grid">
             <div class="card">
-                <h3>Power-Line Fried Chicken</h3>
-                <div class="tags">
-                    <span class="tag">C#</span>
-                    <span class="tag">Unity</span>
+                <div class="card-head">
+                    <h3>University of Belgrade, School of Electrical Engineering</h3>
                 </div>
-                <p>Arcade/action game developed in 10 days in Unity with C# for Bigmode Game Jam 2025</p>
-                <p>Ranked #13 in originality and #16 in fun out of 829 entries</p>
-                <p>Play as a ball of electricity and stop birds from ruining your car, while keeping a combo going</p>
-                <a class="btn" href="https://itch.io/jam/bigmode-game-jam-2025/rate/3298066" target="_blank">itch.io</a>
-                <a class="btn" href="https://github.com/markovolimango/Power-Line-Trouble" target="_blank">GitHub</a>
+                <span class="date">Oct. 2024 – Present</span>
+                <p>Bachelor in Software Engineering</p>
+                <p>9.72/10 average grade, 138 ECTS</p>
+                <p>Enrolled with a perfect score on the entrance exam</p>
+                <p>Selected coursework: Operating Systems, Computer Architecture, Algorithms and Data Structures,
+                    Databases, Digital Electronics, Neural Networks</p>
             </div>
             <div class="card">
-                <h3>Mini CLI</h3>
-                <div class="tags">
-                    <span class="tag">C++</span>
+                <div class="card-head">
+                    <h3>Mathematical Grammar School, Belgrade</h3>
                 </div>
-                <p>Small shell clone made as a university project</p>
-                <p>Support for multiple commands, piping and redirections</p>
-                <a class="btn" href="https://github.com/markovolimango/mini-cli" target="_blank">GitHub</a>
-            </div>
-            <div class="card">
-                <h3>Logo LSP</h3>
-                <div class="tags">
-                    <span class="tag">Java</span>
-                </div>
-                <p>LSP language server for the Logo programming language</p>
-                <p>Syntax highlighting, diagnostics reporting, rename refactoring and more</p>
-                <a class="btn" href="https://github.com/markovolimango/LOGO-LSP" target="_blank">GitHub</a>
-            </div>
-            <div class="card">
-                <h3>Checkers Bot</h3>
-                <div class="tags">
-                    <span class="tag">C#</span>
-                    <span class="tag">Avalonia UI</span>
-                </div>
-                <p>App that lets you play checkers against a bot (that's impossible to beat)</p>
-                <p>Made with C# (.NET) and Avalonia UI</p>
-                <a class="btn" href="https://github.com/markovolimango/Checkers-Bot" target="_blank">GitHub</a>
-            </div>
-            <div class="card">
-                <h3>The Secret Laugh</h3>
-                <div class="tags">
-                    <span class="tag">C#</span>
-                    <span class="tag">Unity</span>
-                </div>
-                <p>Action/puzzle game developed in 48 hours in Unity with C# for Global Game Jam 2024</p>
-                <p>Find a hidden target by tickling them</p>
-                <a class="btn" href="https://globalgamejam.org/games/2024/secret-laugh-4" target="_blank">GGJ Site</a>
-                <a class="btn" href="https://github.com/Veliki5382/TheSecretLaugh" target="_blank">GitHub</a>
-            </div>
-            <div class="card">
-                <h3>JSON Parser</h3>
-                <div class="tags">
-                    <span class="tag">C++</span>
-                </div>
-                <p>A C++ console app that parses JSON and evaluates user expressions</p>
-                <p>Supports functions and operations in expressions</p>
-                <a class="btn" href="https://github.com/markovolimango/JSON-Parser" target="_blank">GitHub</a>
+                <span class="date">Sept. 2020 – Jun. 2024</span>
+                <p>5.00/5.00 average grade</p>
+                <p>Graduated with the Vuk Karadžić Diploma, awarded for top grades in every year</p>
             </div>
         </div>
     </section>
 
     <section>
         <h2>Experience</h2>
-        <div class="single-col">
-            <h3>Private Tutoring in Math, Physics and Programming</h3>
-            <p>2024 - Present</p>
-            <p>Teaching multiple high school students math, physics and programming at <a href="https://olypro.rs"
-                                                                                          target="_blank">OlyPro</a></p>
+        <div class="card row">
+            <div class="card-head">
+                <h3>Private Tutor in Programming, Physics and Mathematics</h3>
+                <span class="date">2024 – 2026</span>
+            </div>
+            <p>Prepared high school students for competitive programming in C and C++ and tutored physics and
+                mathematics at <a href="https://olypro.rs" target="_blank">OlyPro</a>.</p>
         </div>
-        <div class="single-col">
-            <h3>Entrepreneurship Competitions</h3>
-            <p>2022 - 2023</p>
-            <p>Competed in the <a href="https://www.ja-serbia.org/desavanje/poslovni-izazov/" target="_blank">Business
-                Challenge</a> and <a href="https://www.ja-serbia.org/izazov-specijal-smanjenje-ekoloskog-otiska/"
-                                     target="_blank">Challenge Special</a> competitions, reaching the superfinals</p>
-        </div>
-        <div class="single-col">
-            <h3>Math, Physics and Programming Competitions</h3>
-            <p>2018 - 2024</p>
-            <p>Competed on the national level in category A <a href="https://dms.rs/matematika-srednje-skole/"
-                                                               target="_blank">Mathematics</a>, <a
-                    href="https://www.df.uns.ac.rs/takmicenjefizikasrednje/index.html" target="_blank">Physics</a> and
-                city level in <a href="https://takprog.petlja.org/srednjaskola/posts/1" target="_blank">Programming</a>
-            </p>
-            <p>Won multiple awards in math and physics</p>
-        </div>
-        <div class="single-col">
-            <h3>Volunteer at the Mathematical Grammar School Cup</h3>
-            <p>2023</p>
-            <p>Assisted in organizing the <a href="https://www.cup.mg.edu.rs" target="_blank">Mathematical Grammar
-                School Cup</a> at the National Assembly of Serbia</p>
-            <p>Guided participants around Belgrade</p>
+        <div class="card row">
+            <div class="card-head">
+                <h3>Mathematics, Physics and Programming Competitions</h3>
+                <span class="date">2018 – 2024</span>
+            </div>
+            <p>Competed at state level (category A) in <a href="https://dms.rs/matematika-srednje-skole/"
+                    target="_blank">mathematics</a> and <a
+                    href="https://www.df.uns.ac.rs/takmicenjefizikasrednje/index.html" target="_blank">physics</a>,
+                and at regional level in <a href="https://takprog.petlja.org/srednjaskola/posts/1"
+                    target="_blank">programming</a>. Won multiple awards in mathematics and physics.</p>
+            <p>Also reached the superfinals of Junior Achievement Serbia's entrepreneurship competitions (2022–2023).</p>
         </div>
     </section>
 
     <section>
         <h2>Skills</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Programming Languages</h3>
-                <p>Proficient in C++, C# and C</p>
-                <p>Familiar with Python, Java and Prolog</p>
-                <p>Some experience with web development (JavaScript, HTML and CSS)</p>
-                <p>Knowledge of SQL and relational database principles and organization</p>
-            </div>
-            <div class="card">
-                <h3>Tools</h3>
-                <p>Extensive experience with the Unity game engine, some with Godot and Unreal</p>
-                <p>Familiar with the .NET Framework and Avalonia UI</p>
-            </div>
-            <div class="card">
-                <h3>AI</h3>
-                <p>Understanding of deep learning and neural networks and the math behind it</p>
-                <p>Familiar with AI integration into C# apps</p>
-            </div>
-            <div class="card">
-                <h3>Programming Skills</h3>
-                <p>Quick and efficient at debugging</p>
-                <p>Keeping projects organized and their structures thought out</p>
-                <p>Focus on optimization, but keeping readability and improvability in mind</p>
-            </div>
-            <div class="card">
-                <h3>Math</h3>
-                <p>Knowledge of linear algebra and analytical geometry</p>
-                <p>Familiar with statistics and its uses</p>
-                <p>Knowledge of calculus and discrete mathematics</p>
-            </div>
-            <div class="card">
-                <h3>Personal Skills</h3>
-                <p>Highly motivated</p>
-                <p>Strong problem-solving skills</p>
-                <p>Ability and willingness to learn quickly and thoroughly</p>
-                <p>Great communication skills, even when working under strict time pressure</p>
-                <p>Creative outside-the-box thinking</p>
-            </div>
+        <div class="card">
+            <dl class="skills">
+                <dt>Languages</dt>
+                <dd>C, C++, C#, Java, Python, RISC-V assembly</dd>
+                <dt>Tools</dt>
+                <dd>Linux, Git, GDB, QEMU, CMake, Docker, GitHub Actions</dd>
+                <dt>Frameworks</dt>
+                <dd>.NET, Avalonia UI, Unity, lsp4j</dd>
+                <dt>Libraries</dt>
+                <dd>NumPy, SciPy, Matplotlib, pandas, Keras</dd>
+                <dt>Testing</dt>
+                <dd>JUnit, NUnit, GoogleTest</dd>
+                <dt>Hardware</dt>
+                <dd>PIC microcontrollers</dd>
+            </dl>
         </div>
     </section>
 </div>
